@@ -63,4 +63,18 @@ total 584
 retval = 00000000
 $ ./mysysmain                                              <-- 引数なしの場合      
 使い方 : ./mysysmain コマンド文字列                            <-- Usageメッセージを表示
+$ ./mysysmain "A"                                          <-- コマンドを起動できない場合  
+mysystem:
+/bin/sh: A: command not found
+retval = 00007f00
+system:
+sh: A: command not found
+retval = 00007f00
+$ ./mysysmain "cat A"                                      <-- 起動したコマンドがエラーを起こす場合
+mysystem:
+cat: A: No such file or directory
+retval = 00000100
+system:
+cat: A: No such file or directory
+retval = 00000100
 */
